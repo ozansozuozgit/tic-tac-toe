@@ -1,0 +1,21 @@
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+img {
+  height: 100%;
+  width: 100%;
+}
+
+#container {
+  height: 70vh;
+  display: grid;
+  grid-template: repeat(3, 150px) / repeat(3, 150px);
+  border: 1px solid rgb(0, 0, 0);
+}
+[data-cell] {
+  border: 1px black solid;
+}
