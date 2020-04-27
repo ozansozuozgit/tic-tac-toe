@@ -8,10 +8,10 @@ body {
 img {
   height: 100%;
   width: 100%;
+  pointer-events: none;
 }
 
 #container {
-  height: 70vh;
   display: grid;
   grid-template: repeat(3, 150px) / repeat(3, 150px);
   border: 1px solid rgb(0, 0, 0);
