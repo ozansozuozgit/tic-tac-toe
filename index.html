@@ -7,17 +7,23 @@
     <title>Tic Tac Toe</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link rel="stylesheet" href="styles/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Ultra&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <div id="player-info-container">
         <label for="player1">Enter Player 1 name</label>
-        <input type="text" name="player1" id="player1"><br>
+        <input type="text" name="player1" id="player1-input"><br>
         <label for="player2">Enter Player 2 name</label>
-        <input type="text" name="player2" id="player2"><br>
+        <input type="text" name="player2" id="player2-input"><br>
         <button id="btn-start">Start</button>
     </div>
-    <div id="container" style="display: none"></div>
+    <h2 id="display-result">
+
+    </h2>
+    <div id="container" style="display: none">
+
+    </div>
     <button id="replay" style="display: none">Replay</button>
     <script src="scripts/script.js"></script>
 </body>

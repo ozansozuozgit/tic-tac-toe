@@ -50,16 +50,17 @@ const displayController = (() => {
   const displaySelection = (cell) => {
     if (cell.hasChildNodes()) return;
     const img = document.createElement("img");
-    // console.log(Player1.getActive());
-    img.src = gameBoard.getPlayers()[0].active === true ? "images/X.png" : "images/O.jpeg";
+    img.src = gameBoard.getPlayers()[0].active === true ? "images/X.png" : "images/O.png";
     cell.appendChild(img);
   };
 
   const displayWinner = (player) => {
+    const displayResult = document.querySelector("#display-result");
     if (player === "draw") {
+      displayResult.textContent = "It's a draw!";
       console.log("It's a draw!");
     } else {
-      console.log(`${player} wins!`);
+      displayResult.textContent = `${player} wins!`;
     }
     updateGame.gameEnd = true;
     document.querySelector("#replay").style.display = "inline-block";
@@ -101,7 +102,7 @@ const gameStatus = (() => {
         gameArray[i][0] === gameArray[i][1] &&
         gameArray[i][1] === gameArray[i][2]
       )
-        displayController.displayWinner(currentPlayer);
+        return displayController.displayWinner(currentPlayer);
     }
     // Vertical
     for (let i = 0; i < 3; i++) {
@@ -110,7 +111,7 @@ const gameStatus = (() => {
         gameArray[0][i] === gameArray[1][i] &&
         gameArray[1][i] === gameArray[2][i]
       )
-        displayController.displayWinner(currentPlayer);
+        return displayController.displayWinner(currentPlayer);
     }
     // Diagonal
     if (
@@ -118,7 +119,7 @@ const gameStatus = (() => {
       gameArray[0][0] === gameArray[1][1] &&
       gameArray[1][1] === gameArray[2][2]
     )
-      displayController.displayWinner(currentPlayer);
+      return displayController.displayWinner(currentPlayer);
 
     // Diagonal
     if (
@@ -126,7 +127,7 @@ const gameStatus = (() => {
       gameArray[2][0] === gameArray[1][1] &&
       gameArray[1][1] === gameArray[0][2]
     )
-      displayController.displayWinner(currentPlayer);
+      return displayController.displayWinner(currentPlayer);
     // Check for a draw. Original array contains all 0, if there are no winners and all the array
     // is filled with X and O, that would mean there are no 0's(empty spots) left
     if (!gameArray.some((row) => row.includes(0))) displayController.displayWinner("draw");
@@ -136,9 +137,11 @@ const gameStatus = (() => {
 })();
 
 document.querySelector("#btn-start").addEventListener("click", () => {
+  // Initial setup
   displayController.displayBoard();
   gameBoard.setPlayers();
   gameBoard.createArray();
+  // Begin interactions with game
   document.querySelector("#player-info-container").style.display = "none";
   document.querySelectorAll("[data-cell]").forEach((cell) =>
     cell.addEventListener("click", (e) => {
@@ -152,12 +155,14 @@ document.querySelector("#btn-start").addEventListener("click", () => {
 });
 
 document.querySelector("#replay").addEventListener("click", (e) => {
+  // Reset values
   document.querySelector("#container").style.display = "none";
   document.querySelector("#container").innerHTML = "";
   document.querySelectorAll("input").forEach((input) => (input.value = ""));
   document.querySelector("#player-info-container").style.display = "block";
+  document.querySelector("#display-result").textContent = "";
   gameBoard.gameArray = [];
   gameBoard.playerArray = [];
   updateGame.gameEnd = false;
-  e.target.style.display = "none";
+  document.querySelector("#replay").style.display = "none";
 });

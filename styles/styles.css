@@ -1,21 +1,67 @@
 body {
   height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-family: "Ultra", serif;
+  background-color: black;
+  color: white;
 }
-
+label {
+  font-size: 2em;
+  padding: 20px;
+}
+input[type="text"] {
+  outline: none;
+  font-size: 1.6em;
+  padding: 20px;
+  border-radius: 10px;
+  border: none;
+  background-color: #2e4777;
+  color: #37b8cd;
+}
+#player1-input {
+  margin-left: 27px;
+  margin-bottom: 10px;
+}
+#player2-input {
+  margin-left: 20px;
+}
+#display-result {
+  color: red;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial,
+    sans-serif;
+}
+#btn-start,
+#replay {
+  display: block;
+  margin: 20px auto;
+  font-size: 3em;
+  color: brown;
+  border: none;
+  background-color: black;
+  outline: none;
+}
+#btn-start:hover,
+#replay:hover {
+  color: white;
+  text-shadow: 0 0 10px brown;
+}
 img {
-  height: 100%;
-  width: 100%;
+  height: 80%;
+  width: 80%;
   pointer-events: none;
 }
 
 #container {
   display: grid;
   grid-template: repeat(3, 150px) / repeat(3, 150px);
-  border: 1px solid rgb(0, 0, 0);
 }
 [data-cell] {
-  border: 1px black solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: none;
+  border: 2px #042a62 solid;
 }
