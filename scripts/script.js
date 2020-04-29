@@ -81,7 +81,7 @@ const updateGame = (() => {
 
   // Update Players
   const switchPlayers = () => {
-    for (let player of gameBoard.getPlayers()) {
+    for (const player of gameBoard.getPlayers()) {
       player.active = !player.active;
     }
   };
@@ -154,7 +154,7 @@ document.querySelector("#btn-start").addEventListener("click", () => {
   );
 });
 
-document.querySelector("#replay").addEventListener("click", (e) => {
+document.querySelector("#replay").addEventListener("click", () => {
   // Reset values
   document.querySelector("#container").style.display = "none";
   document.querySelector("#container").innerHTML = "";
