@@ -64,4 +64,5 @@ img {
   align-items: center;
   background-color: none;
   border: 2px #042a62 solid;
+  cursor: pointer;
 }

@@ -36,7 +36,6 @@ const displayController = (() => {
     for (let i = 0; i < 3; i++) {
       for (k = 0; k < 3; k++) {
         const newCell = document.createElement("div");
-        newCell.classList.add("cell");
         newCell.setAttribute("data-cell", `${i}${k}`);
         container.appendChild(newCell);
       }
@@ -73,7 +72,7 @@ const updateGame = (() => {
   const gameEnd = false;
 
   const updateArray = (cell) => {
-    const [row, col] = [...cell.attributes[1].value];
+    const [row, col] = [...cell.attributes[0].value];
     const value = gameBoard.getPlayers()[0].active === true ? "X" : "O";
     gameBoard.setArray(row, col, value);
     console.log(`row:${row} col:${col}`);
