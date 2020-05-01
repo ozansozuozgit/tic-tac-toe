@@ -57,12 +57,13 @@ img {
 #container {
   display: grid;
   grid-template: repeat(3, 150px) / repeat(3, 150px);
+  outline: 10px solid rgb(0, 0, 0);
+  outline-offset: -5px;
 }
 [data-cell] {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: none;
   border: 2px #042a62 solid;
   cursor: pointer;
 }

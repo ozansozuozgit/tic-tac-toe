@@ -16,7 +16,7 @@ const gameBoard = (() => {
     playerArray.push(Player1, Player2);
   };
 
-  let gameArray = [];
+  let gameArray;
   // 3 rows, 3 columns
   const createArray = () => (gameArray = [...Array(3)].map(() => Array(3).fill(0)));
   const setArray = (row, col, value) => {
@@ -75,7 +75,6 @@ const updateGame = (() => {
     const [row, col] = [...cell.attributes[0].value];
     const value = gameBoard.getPlayers()[0].active === true ? "X" : "O";
     gameBoard.setArray(row, col, value);
-    console.log(`row:${row} col:${col}`);
   };
 
   // Update Players
